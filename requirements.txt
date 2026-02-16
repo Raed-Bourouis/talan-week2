@@ -1,0 +1,54 @@
+# LLM & Embeddings
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-community>=0.0.20
+openai>=1.12.0
+
+# Vector Database
+qdrant-client>=1.7.0
+
+# Graph Database
+neo4j>=5.16.0
+
+# Database
+psycopg2-binary>=2.9.9
+sqlalchemy>=2.0.25
+pgvector>=0.2.4
+
+# API
+fastapi>=0.109.2
+uvicorn[standard]>=0.27.1
+pydantic>=2.6.1
+pydantic-settings>=2.1.0
+
+# Dashboard
+streamlit>=1.31.0
+plotly>=5.18.0
+pandas>=2.2.0
+numpy>=1.26.3
+
+# Document Processing
+unstructured>=0.12.4
+pypdf>=4.0.1
+openpyxl>=3.1.2
+python-multipart>=0.0.9
+python-docx>=1.1.0
+
+# Utilities
+redis>=5.0.1
+python-dotenv>=1.0.1
+requests>=2.31.0
+httpx>=0.26.0
+
+# Data Processing
+scipy>=1.12.0
+scikit-learn>=1.4.0
+
+# Logging & Monitoring
+python-json-logger>=2.0.7
+
+# Date & Time
+python-dateutil>=2.8.2
+
+# Type Checking
+typing-extensions>=4.9.0

@@ -1,0 +1,85 @@
+{
+  "collections": [
+    {
+      "name": "financial_documents",
+      "description": "Semantic embeddings for all financial documents (budgets, contracts, invoices, accounting entries)",
+      "vector_config": {
+        "size": 1536,
+        "distance": "Cosine"
+      },
+      "payload_schema": {
+        "document_id": "keyword",
+        "document_type": "keyword",
+        "department": "keyword",
+        "date": "datetime",
+        "amount": "float",
+        "status": "keyword",
+        "text_content": "text"
+      },
+      "optimizers_config": {
+        "indexing_threshold": 20000
+      }
+    },
+    {
+      "name": "contract_clauses",
+      "description": "Embeddings for extracted contract clauses for semantic clause search",
+      "vector_config": {
+        "size": 1536,
+        "distance": "Cosine"
+      },
+      "payload_schema": {
+        "contract_id": "keyword",
+        "clause_type": "keyword",
+        "supplier": "keyword",
+        "clause_text": "text",
+        "risk_level": "keyword"
+      }
+    },
+    {
+      "name": "financial_entities",
+      "description": "Embeddings for extracted financial entities (suppliers, clients, departments)",
+      "vector_config": {
+        "size": 1536,
+        "distance": "Cosine"
+      },
+      "payload_schema": {
+        "entity_id": "keyword",
+        "entity_type": "keyword",
+        "name": "text",
+        "description": "text",
+        "category": "keyword"
+      }
+    },
+    {
+      "name": "episodic_memory",
+      "description": "Embeddings for historical patterns and episodic memories",
+      "vector_config": {
+        "size": 1536,
+        "distance": "Cosine"
+      },
+      "payload_schema": {
+        "pattern_id": "keyword",
+        "pattern_type": "keyword",
+        "entity_id": "keyword",
+        "description": "text",
+        "confidence": "float",
+        "occurrences": "integer",
+        "last_observed": "datetime"
+      }
+    },
+    {
+      "name": "query_history",
+      "description": "Embeddings for query history to improve future responses",
+      "vector_config": {
+        "size": 1536,
+        "distance": "Cosine"
+      },
+      "payload_schema": {
+        "query_text": "text",
+        "query_intent": "keyword",
+        "response_quality": "float",
+        "timestamp": "datetime"
+      }
+    }
+  ]
+}
