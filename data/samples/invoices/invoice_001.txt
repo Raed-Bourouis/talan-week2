@@ -1,0 +1,40 @@
+INVOICE
+
+Invoice Number: INV-2024-001
+Invoice Date: January 15, 2024
+Due Date: February 14, 2024
+
+BILL TO:
+Acme Financial Corp
+456 Finance Ave
+New York, NY 10001
+
+FROM:
+TechVendor Inc
+123 Tech Street
+San Francisco, CA 94105
+
+DETAILS:
+
+Description                                Quantity    Unit Price    Amount
+----------------------------------------------------------------
+Software License - January 2024                1       $10,000.00   $10,000.00
+Technical Support - January 2024               1            $0.00       $0.00
+System Maintenance - January 2024              1            $0.00       $0.00
+
+                                                    Subtotal:    $10,000.00
+                                                    Tax (0%):         $0.00
+                                                    TOTAL:      $10,000.00
+
+PAYMENT INSTRUCTIONS:
+Wire Transfer to:
+Bank: First National Bank
+Account: 1234567890
+Routing: 987654321
+Reference: INV-2024-001
+
+TERMS:
+Net 30 Days
+Late payment fee: 1.5% per month after due date
+
+Thank you for your business!

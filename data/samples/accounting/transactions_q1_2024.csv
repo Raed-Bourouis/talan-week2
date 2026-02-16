@@ -1,0 +1,16 @@
+Date,Account Code,Account Name,Department,Transaction Type,Amount,Description,Reference
+2024-01-15,5100,Marketing Expenses,Marketing,Expense,15000,Digital Marketing Campaign Q1,INV-2024-001
+2024-01-20,5200,Software Licenses,R&D,Expense,10000,Annual Software License - TechVendor,INV-2024-002
+2024-01-25,5300,Office Supplies,Operations,Expense,2500,Office supplies and equipment,INV-2024-003
+2024-02-01,4100,Service Revenue,Sales,Revenue,50000,Enterprise Client - Monthly Service,INV-REC-001
+2024-02-05,5100,Marketing Expenses,Marketing,Expense,8500,Trade Show Booth Rental,INV-2024-004
+2024-02-10,5400,Travel Expenses,Sales,Expense,3200,Client Meeting Travel - NY,EXP-2024-001
+2024-02-15,5200,Software Licenses,R&D,Expense,10000,Annual Software License - TechVendor,INV-2024-005
+2024-02-20,4100,Service Revenue,Sales,Revenue,75000,Large Corp - Quarterly Payment,INV-REC-002
+2024-02-25,5500,Consulting Fees,R&D,Expense,12000,Technology Consulting Services,INV-2024-006
+2024-03-01,5300,Office Supplies,Operations,Expense,1800,Monthly office supplies,INV-2024-007
+2024-03-05,5100,Marketing Expenses,Marketing,Expense,22000,Q1 Marketing Campaign Final,INV-2024-008
+2024-03-10,4100,Service Revenue,Sales,Revenue,45000,Enterprise Client - Monthly Service,INV-REC-003
+2024-03-15,5200,Software Licenses,R&D,Expense,10000,Annual Software License - TechVendor,INV-2024-009
+2024-03-20,5600,Training Expenses,Operations,Expense,5000,Staff Training Program,INV-2024-010
+2024-03-25,5700,Equipment Maintenance,Operations,Expense,3500,Server Maintenance Q1,INV-2024-011
