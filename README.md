@@ -30,7 +30,7 @@ FINCENTER is a comprehensive financial intelligence platform that uses:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/Raed-Bourouis/talan-week2.git
+git clone <repository-url>
 cd talan-week2
 ```
 

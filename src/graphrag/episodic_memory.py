@@ -125,10 +125,15 @@ class EpisodicMemory:
                           confidence=pattern['confidence'],
                           occurrences=pattern['occurrences'])
                 
-                # Link to entity
+                # Link to entity - validate entity_type to prevent Cypher injection
+                allowed_types = ['Supplier', 'Department', 'Contract', 'Invoice', 'Payment', 'Client']
+                entity_type = pattern['entity_type']
+                if entity_type not in allowed_types:
+                    raise ValueError(f"Invalid entity_type: {entity_type}. Must be one of {allowed_types}")
+                
                 link_query = f"""
                 MATCH (p:Pattern {{id: $pattern_id}})
-                MATCH (e:{pattern['entity_type']} {{id: $entity_id}})
+                MATCH (e:{entity_type} {{id: $entity_id}})
                 MERGE (e)-[:HAS_PATTERN]->(p)
                 """
                 

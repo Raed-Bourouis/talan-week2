@@ -17,6 +17,13 @@ from .models import (
 )
 from .routers import budget, contracts, cashflow, alerts
 
+# Import query orchestrator at module level for better performance
+try:
+    from src.graphrag.query_orchestrator import QueryOrchestrator
+    QUERY_ORCHESTRATOR_AVAILABLE = True
+except ImportError:
+    QUERY_ORCHESTRATOR_AVAILABLE = False
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -169,11 +176,9 @@ async def query_financial_data(request: QueryRequest):
     try:
         logger.info(f"Processing query: {request.question}")
         
-        # Initialize components (in production, use dependency injection)
-        from src.graphrag.query_orchestrator import QueryOrchestrator
-        
         # This is a placeholder response
         # In production, initialize actual components and process query
+        # QueryOrchestrator imported at module level for performance
         response = QueryResponse(
             query=request.question,
             query_type="general",
