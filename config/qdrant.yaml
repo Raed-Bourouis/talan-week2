@@ -1,0 +1,21 @@
+# Qdrant Configuration
+storage:
+  # Storage backend: local file system
+  storage_path: /qdrant/storage
+
+service:
+  # HTTP port
+  http_port: 6333
+  # gRPC port  
+  grpc_port: 6334
+  # Enable CORS
+  enable_cors: true
+
+# Optimize for financial data
+collection:
+  # Default collection settings
+  on_disk_payload: true
+  # Optimizers
+  optimizer:
+    indexing_threshold_kb: 10000
+    memmap_threshold_kb: 50000

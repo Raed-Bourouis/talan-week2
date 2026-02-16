@@ -1,0 +1,43 @@
+{
+  "collections": [
+    {
+      "name": "financial_documents",
+      "description": "Vector embeddings for all financial documents (budgets, contracts, invoices)",
+      "vector_config": {
+        "size": 384,
+        "distance": "Cosine"
+      },
+      "on_disk_payload": true,
+      "optimizers_config": {
+        "indexing_threshold": 10000
+      }
+    },
+    {
+      "name": "contract_clauses",
+      "description": "Vector embeddings for extracted contract clauses",
+      "vector_config": {
+        "size": 384,
+        "distance": "Cosine"
+      },
+      "on_disk_payload": true
+    },
+    {
+      "name": "financial_entities",
+      "description": "Vector embeddings for financial entities (suppliers, departments, projects)",
+      "vector_config": {
+        "size": 384,
+        "distance": "Cosine"
+      },
+      "on_disk_payload": true
+    },
+    {
+      "name": "queries",
+      "description": "Vector embeddings for query patterns and templates",
+      "vector_config": {
+        "size": 384,
+        "distance": "Cosine"
+      },
+      "on_disk_payload": true
+    }
+  ]
+}

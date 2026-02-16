@@ -1,0 +1,5 @@
+# List of Ollama models to download on first startup
+# These are all FREE and open-source!
+
+llama3.1:8b
+mistral:7b
