@@ -1,0 +1,35 @@
+# ================================================================
+#  F360 — Decision Fusion Service (docker-compose)
+#
+#  Runs the Week 2 decision-fusion module as a standalone
+#  containerised API.  Other PFE services can POST real
+#  financial / KG / scenario data to it via HTTP.
+#
+#  Usage:
+#    docker-compose up --build        # build & start
+#    http://localhost:8000/docs        # Swagger UI
+#    http://localhost:8000/health      # liveness probe
+# ================================================================
+
+version: "3.9"
+
+services:
+  decision-fusion:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: f360-decision-fusion
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - RISK_WEIGHT=0.6
+      - PROFITABILITY_WEIGHT=0.4
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
