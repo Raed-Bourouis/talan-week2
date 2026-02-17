@@ -12,7 +12,7 @@ from enum import Enum
 from typing import Any, Optional
 from uuid import UUID, uuid4
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -83,6 +83,14 @@ class ClauseType(str, Enum):
 
 class FinancialEntity(BaseModel):
     """Base class for all financial entities."""
+    model_config = ConfigDict(
+        json_encoders={
+            UUID: str,
+            datetime: lambda v: v.isoformat(),
+            Decimal: str,
+        }
+    )
+    
     id: UUID = Field(default_factory=uuid4)
     entity_type: EntityType
     name: str
@@ -90,28 +98,22 @@ class FinancialEntity(BaseModel):
     updated_at: datetime = Field(default_factory=datetime.utcnow)
     metadata: dict[str, Any] = Field(default_factory=dict)
 
-    class Config:
-        json_encoders = {
-            UUID: str,
-            datetime: lambda v: v.isoformat(),
-            Decimal: str,
-        }
-
 
 class Relationship(BaseModel):
     """Represents a relationship between two entities."""
+    model_config = ConfigDict(
+        json_encoders={
+            UUID: str,
+            datetime: lambda v: v.isoformat(),
+        }
+    )
+    
     id: UUID = Field(default_factory=uuid4)
     source_id: UUID
     target_id: UUID
     relationship_type: RelationshipType
     properties: dict[str, Any] = Field(default_factory=dict)
     created_at: datetime = Field(default_factory=datetime.utcnow)
-
-    class Config:
-        json_encoders = {
-            UUID: str,
-            datetime: lambda v: v.isoformat(),
-        }
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -264,6 +266,13 @@ class AccountingEntry(FinancialEntity):
 
 class FinancialEpisode(BaseModel):
     """Represents a financial event or pattern in episodic memory."""
+    model_config = ConfigDict(
+        json_encoders={
+            UUID: str,
+            datetime: lambda v: v.isoformat(),
+        }
+    )
+    
     id: UUID = Field(default_factory=uuid4)
     title: str
     description: str
@@ -274,12 +283,6 @@ class FinancialEpisode(BaseModel):
     pattern_signature: Optional[str] = None  # For pattern matching
     similarity_score: Optional[float] = None  # When retrieved
     tags: list[str] = Field(default_factory=list)
-
-    class Config:
-        json_encoders = {
-            UUID: str,
-            datetime: lambda v: v.isoformat(),
-        }
 
 
 class FinancialPattern(BaseModel):
@@ -323,14 +326,15 @@ class RAGQuery(BaseModel):
 
 class RAGResponse(BaseModel):
     """Response from RAG orchestration."""
+    model_config = ConfigDict(
+        json_encoders={
+            UUID: str,
+        }
+    )
+    
     answer: str
     sources: list[dict[str, Any]] = Field(default_factory=list)
     confidence: Optional[float] = None
     reasoning_steps: Optional[list[dict[str, Any]]] = None
     retrieved_entities: list[UUID] = Field(default_factory=list)
     episodic_context: list[FinancialEpisode] = Field(default_factory=list)
-
-    class Config:
-        json_encoders = {
-            UUID: str,
-        }
