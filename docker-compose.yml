@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  api:
+    build: .
+    container_name: document-processor-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_MODEL=llama2
+      - GRAPHRAG_STORAGE_PATH=/app/data/graphrag
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: unless-stopped
+    command: >
+      sh -c "sleep 10 && uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload"
+
+volumes:
+  ollama_data:

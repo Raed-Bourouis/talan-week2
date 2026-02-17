@@ -1,0 +1,29 @@
+# Core dependencies
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Document parsing
+PyPDF2==3.0.1
+pdfplumber==0.10.3
+python-docx==1.1.0
+openpyxl==3.1.2
+
+# LLM and AI
+langchain==0.1.4
+langchain-community==0.0.16
+ollama==0.1.6
+
+# GraphRAG
+graphrag==0.1.0
+networkx==3.2.1
+numpy==1.26.3
+
+# Database and storage
+chromadb==0.4.22
+
+# Utilities
+python-dotenv==1.0.0
+aiofiles==23.2.1
