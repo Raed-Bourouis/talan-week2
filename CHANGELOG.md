@@ -35,6 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contributing guidelines
 - MIT License
 
+### Security
+- Updated FastAPI to 0.109.1 (fixes ReDoS vulnerability)
+- Updated qdrant-client to 1.9.0 (fixes input validation)
+- Updated torch to 2.6.0 (fixes heap buffer overflow, use-after-free, and RCE vulnerabilities)
+
 ### Features
 - 100% free operation (no API keys required)
 - Domain-agnostic design
@@ -48,13 +53,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automatic API documentation
 
 ### Dependencies
-- FastAPI 0.109.0
-- Qdrant Client 1.7.3
+- FastAPI 0.109.1 (security patch)
+- Qdrant Client 1.9.0 (security patch)
 - Neo4j 5.16.0
 - sentence-transformers 2.3.1
 - Ollama 0.1.6
 - Redis 5.0.1
-- PyTorch 2.1.2
+- PyTorch 2.6.0 (security patch)
 
 ## [Unreleased]
 

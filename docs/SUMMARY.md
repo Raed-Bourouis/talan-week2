@@ -269,7 +269,7 @@ curl http://localhost:8000/health
 | Vector DB | Qdrant | Latest |
 | Graph DB | Neo4j Community | 5.16 |
 | Memory | Redis | 7 |
-| API Framework | FastAPI | 0.109.0 |
+| API Framework | FastAPI | 0.109.1 |
 | Language | Python | 3.9+ |
 | Container | Docker | Latest |
 | Orchestration | Docker Compose | v3.8 |
