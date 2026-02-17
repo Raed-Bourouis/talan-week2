@@ -38,7 +38,8 @@ entity_extractor = EntityExtractor(
 )
 graphrag_manager = GraphRAGManager(
     storage_path=settings.graphrag_storage_path,
-    model=settings.graphrag_embedding_model
+    model=settings.graphrag_embedding_model,
+    embedding_dimension=settings.embedding_dimension
 )
 
 

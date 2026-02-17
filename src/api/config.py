@@ -1,10 +1,12 @@
 """Configuration management."""
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Optional
 
 
 class Settings(BaseSettings):
     """Application settings."""
+    
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
     
     # API Configuration
     api_host: str = "0.0.0.0"
@@ -25,9 +27,8 @@ class Settings(BaseSettings):
     # Logging
     log_level: str = "INFO"
     
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+    # Embedding Configuration
+    embedding_dimension: int = 4096  # Default for llama2
 
 
 settings = Settings()

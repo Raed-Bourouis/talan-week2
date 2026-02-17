@@ -17,7 +17,8 @@ class GraphRAGManager:
         self,
         storage_path: str = "./data/graphrag",
         collection_name: str = "documents",
-        model: str = "llama2"
+        model: str = "llama2",
+        embedding_dimension: int = 4096
     ):
         """Initialize GraphRAG manager.
         
@@ -25,11 +26,13 @@ class GraphRAGManager:
             storage_path: Path to store GraphRAG data
             collection_name: Name of the collection
             model: Model name for embeddings
+            embedding_dimension: Dimension of embeddings (default: 4096 for llama2)
         """
         self.storage_path = Path(storage_path)
         self.storage_path.mkdir(parents=True, exist_ok=True)
         self.collection_name = collection_name
         self.model = model
+        self.embedding_dimension = embedding_dimension
         
         # Initialize ChromaDB client
         self.client = chromadb.PersistentClient(
@@ -198,8 +201,8 @@ class GraphRAGManager:
                 embeddings.append(response['embedding'])
             except Exception as e:
                 logger.error(f"Error generating embedding: {e}")
-                # Fallback: create a dummy embedding
-                embeddings.append([0.0] * 4096)
+                # Fallback: create a dummy embedding with configurable dimension
+                embeddings.append([0.0] * self.embedding_dimension)
         
         return embeddings
     
